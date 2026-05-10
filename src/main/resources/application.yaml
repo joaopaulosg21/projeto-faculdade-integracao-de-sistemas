@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: dadosClimaticos
+server:
+  port: 3000

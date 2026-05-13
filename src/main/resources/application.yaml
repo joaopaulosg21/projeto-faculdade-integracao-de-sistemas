@@ -3,3 +3,6 @@ spring:
     name: dadosClimaticos
 server:
   port: 3000
+
+api:
+  base: https://brasilapi.com.br/api/cptec/v1

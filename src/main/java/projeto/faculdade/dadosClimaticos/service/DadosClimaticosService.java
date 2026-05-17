@@ -2,7 +2,7 @@ package projeto.faculdade.dadosClimaticos.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import projeto.faculdade.dadosClimaticos.client.DadosClimaticosClient;
+import projeto.faculdade.dadosClimaticos.client.DadosCidadesFeignClient;
 import projeto.faculdade.dadosClimaticos.controller.contract.DadosClimaticosResponse;
 import projeto.faculdade.dadosClimaticos.domain.Cidade;
 import projeto.faculdade.dadosClimaticos.domain.DadosClimaticos;
@@ -14,7 +14,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class DadosClimaticosService {
 
-    private final DadosClimaticosClient client;
+    private final DadosCidadesFeignClient client;
 
     private Cidade getCidadeByName(String cidade) {
         return client.getDadosCidade(cidade)

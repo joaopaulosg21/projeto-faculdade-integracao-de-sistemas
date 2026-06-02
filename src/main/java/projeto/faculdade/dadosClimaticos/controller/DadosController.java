@@ -24,7 +24,7 @@ public class DadosController {
     }
 
     @GetMapping("/cidades/{sigla_uf}")
-    public ResponseEntity<DadosMunicipiosResponse> getCidades(@PathVariable(name = "sigla_uf") String siglaUf, @RequestParam("limite") Integer limite) {
+    public ResponseEntity<DadosMunicipiosResponse> getCidades(@PathVariable(name = "sigla_uf") String siglaUf, @RequestParam(value = "limite",required = false) Integer limite) {
         return ResponseEntity.ok(dadosMunicipiosService.execute(siglaUf, limite));
     }
 

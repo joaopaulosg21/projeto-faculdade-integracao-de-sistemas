@@ -32,11 +32,14 @@ public class DadosMunicipiosService {
         }
 
         try {
-            return client.getMunicipios(siglaUf)
+            var municipios = client.getMunicipios(siglaUf)
                     .stream()
-                    .limit(limite)
                     .map(municipio -> new DadosMunicipiosResponse.MunicipioResponse(municipio.nome()))
                     .toList();
+            if(limite == null ) {
+                return municipios;
+            }
+            return  municipios.stream().limit(limite).toList();
         }catch (FeignException.NotFound exc) {
             throw new SiglaNaoEncontradaException(siglaUf);
         }

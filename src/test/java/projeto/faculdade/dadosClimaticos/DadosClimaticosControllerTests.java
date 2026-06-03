@@ -15,7 +15,6 @@ import projeto.faculdade.dadosClimaticos.service.DadosMunicipiosService;
 import projeto.faculdade.dadosClimaticos.service.HealthService;
 
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import static org.mockito.Mockito.when;
@@ -25,7 +24,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @AutoConfigureMockMvc
 @WebMvcTest(DadosController.class)
-class DadosControllerTests {
+class DadosClimaticosControllerTests {
     @MockitoBean
     private DadosClimaticosService dadosClimaticosService;
 
@@ -37,9 +36,6 @@ class DadosControllerTests {
 
     @Autowired
     private MockMvc mockMvc;
-
-    private final static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss'Z'");
-
 
     @Test
     void getDadosClimaticos_cenarioSucesso() throws Exception {
@@ -87,7 +83,7 @@ class DadosControllerTests {
                         .condicao("Parcialmente Nublado")
                         .unidades(List.of(new DadosClimaticosResponse.Unidade("C")))
                         .build())
-                .consultado_em(LocalDateTime.of(2026,5,22,12,30,30))
+                .consultado_em(LocalDateTime.now())
                 .build();
     }
 

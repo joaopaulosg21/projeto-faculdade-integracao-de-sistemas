@@ -57,7 +57,7 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(SiglaInvalidaException.class)
     public ResponseEntity<ExceptionResponse> siglaInvalidaHandler(SiglaInvalidaException exc) {
-        return ResponseEntity.status(404)
+        return ResponseEntity.status(400)
                 .body(new ExceptionResponse(true,
                         "SIGLA_UF_INVALIDA",
                         "A sigla do estado deve conter exatamente 2 letras",
